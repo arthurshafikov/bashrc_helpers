@@ -1,0 +1,15 @@
+alias art="php artisan"
+alias t="php artisan tinker"
+alias migrate="php artisan migrate"
+alias rollback="php artisan migrate:rollback --step=1"
+alias seed="php artisan db:seed"
+alias fresh="php artisan migrate:fresh"
+alias cc="php artisan cache:clear"
+alias oc="php artisan optimize:clear"
+alias key="php artisan key:generate"
+
+alias p="phpunit"
+alias pf="phpunit --filter"
+
+alias c="composer"
+alias cfix="composer app:cs-fix"
