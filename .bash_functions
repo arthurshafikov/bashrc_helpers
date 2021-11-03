@@ -48,7 +48,7 @@ dbash () {
   for c in $(docker ps -q -f "name=php" | tr '\n' ' ')
   do
     :
-    d cp ~/tmp/.bash_docker "$c":/root/.bashrc
+    d cp ~/.bash_docker "$c":/root/.bashrc
   done
   success
 }
