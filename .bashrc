@@ -12,7 +12,6 @@ fi
 alias d="docker"
 alias dc="docker-compose"
 alias dex="docker exec -it"
-alias dps="docker ps"
 alias dcps="docker-compose ps"
 alias dpsa="docker ps -a"
 alias dcgo="docker-compose up -d --build --remove-orphans && dbash"
