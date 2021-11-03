@@ -12,20 +12,17 @@ fi
 alias d="docker"
 alias dc="docker-compose"
 alias dex="docker exec -it"
-#alias dps="docker ps"
+alias dps="docker ps"
 alias dcps="docker-compose ps"
 alias dpsa="docker ps -a"
 alias dcgo="docker-compose up -d --build --remove-orphans && dbash"
 alias dcup="docker-compose up -d"
 alias dstall="docker stop docker ps -q | tr '\n' ' '"
-#alias dstall="docker stop $(docker ps -q | tr '\n' ' ')"
 alias dcst="docker-compose stop"
 alias dcrb="docker-compose stop && docker-compose up -d --build --remove-orphans"
 
 alias g="git"
 alias gconf="phpstorm ~/.gitconfig"
-
-alias cdpr="cd ~/projects/"
 
 alias p="phpstorm"
 
