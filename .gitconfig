@@ -1,0 +1,32 @@
+[core]
+    editor = 'vim'
+    sshCommand = ssh -i ~/.ssh/id_rsa -F /dev/null # You will need to create this file
+    # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+[alias]
+    lg = log --graph --all --format=format:'%C(bold cyan)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	l = log -1 HEAD --stat
+
+    c = commit
+    cm = commit -m
+    ca = commit --amend --no-edit
+
+	co = checkout
+
+    a = add
+    al = add ./
+    acm = !git add . && git commit -m
+
+	s = status
+	sm = status -sb
+
+	b = branch
+
+	p = push
+
+	r = restore
+	rst = restore --staged
+    
+    rollback = reset --mixed HEAD^1
+[user]
+	email = #YOUR_EMAIL#
+	name = #YOUR_NAME#
