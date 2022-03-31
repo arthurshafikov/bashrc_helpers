@@ -1,4 +1,4 @@
-alias art="php artisan"
+alias a="php artisan"
 alias t="php artisan tinker"
 alias migrate="php artisan migrate"
 alias rollback="php artisan migrate:rollback --step=1"
@@ -13,3 +13,4 @@ alias pf="phpunit --filter"
 
 alias c="composer"
 alias cfix="composer app:cs-fix"
+alias ccs="composer app:cs"
