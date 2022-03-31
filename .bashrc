@@ -5,40 +5,40 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# User specific aliases and functions
+# Docker aliases
 alias d="docker"
 alias dc="docker-compose"
 alias dex="docker exec -it"
 alias dcps="docker-compose ps"
 alias dpsa="docker ps -a"
 alias dcgo="docker-compose up -d --build --remove-orphans && dbash"
+
+# Docker Compose UP
 alias dcup="docker-compose up -d"
+
+# Docker Compose STop ALL
 alias dstall="docker stop docker ps -q | tr '\n' ' '"
+
+# Docker Compose STop
 alias dcst="docker-compose stop"
+
+# Docker Compose ReBuild
 alias dcrb="docker-compose stop && docker-compose up -d --build --remove-orphans"
 
 alias g="git"
+
 alias gconf="phpstorm ~/.gitconfig"
-
 alias p="phpstorm"
-
+# Command to easily open all .bash-files and edit them
 alias pbash="p ~/.bashrc && p ~/.bash_functions && p ~/.bash_docker"
 
-alias envcp="cp .env.example .env"
-
-alias listcp="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head"
-
-# functions
+# Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# Some other things for Ubuntu, maybe you don't need it
+#######################################################################
 
 # If not running interactively, don't do anything
 case $- in
@@ -95,10 +95,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
+    #\u@\h
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]me\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}me:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
