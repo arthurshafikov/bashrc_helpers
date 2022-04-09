@@ -19,7 +19,7 @@ Instead of doing it manually you can use the commands given down below and your 
 you don't need to worry about saving them somewhere else. And if somehow you have .bash_functions or .bash_docker files the console will ask you about rewriting these files.
 ```bash
 cd ~/
-git clone https://github.com/thewolf27/bashrc.git
+git clone https://github.com/arthurshafikov/bashrc.git
 mv -b ./bashrc/.gitconfig .
 mv -b ./bashrc/.bashrc .
 mv -i ./bashrc/.bash_functions .
