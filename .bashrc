@@ -39,6 +39,11 @@ fi
 
 # Some other things for Ubuntu, maybe you don't need it
 
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
 # This will make your name be just "me", not be YOUR-USERNAME@YOUR-PC, so it become much shorter
 if [ "$color_prompt" = yes ]; then
     #\u@\h
