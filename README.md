@@ -22,6 +22,7 @@ cd ~/
 git clone https://github.com/arthurshafikov/bashrc_helpers.git
 mv -b ./bashrc_helpers/.gitconfig .
 mv -b ./bashrc_helpers/.bashrc .
+mv -b ./bashrc_helpers/.profile .
 mv -i ./bashrc_helpers/.bash_functions .
 mv -i ./bashrc_helpers/.bash_docker .
 rm -rf ./bashrc_helpers
