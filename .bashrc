@@ -40,6 +40,15 @@ alias fixsettings="dconf reset -f /org/gnome/control-center/"
 
 alias listport="sudo lsof -i -P -n | grep LISTEN"
 
+alias a="php artisan"
+
+# Symfony aliases
+# alias s="symfony"
+# alias start="s server:start -d --no-tls"
+# alias stop="s server:stop"
+# alias bc="php ./bin/console"
+
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
