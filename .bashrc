@@ -48,6 +48,9 @@ alias a="php artisan"
 # alias stop="s server:stop"
 # alias bc="php ./bin/console"
 
+alias c="composer"
+alias cfix="composer app:cs-fix"
+alias cs="composer app:cs"
 
 # Functions
 if [ -f ~/.bash_functions ]; then
