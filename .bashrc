@@ -38,6 +38,8 @@ alias fixsettings="dconf reset -f /org/gnome/control-center/"
 # alias work="cp ~/.gitconfig-work ~/.gitconfig"
 # alias home="cp ~/.gitconfig-home ~/.gitconfig"
 
+alias listport="sudo lsof -i -P -n | grep LISTEN"
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
