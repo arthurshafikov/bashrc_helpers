@@ -54,6 +54,8 @@ alias cs="composer app:cs"
 
 alias m="make"
 
+alias ng="ngrok start --all --config $HOME/.ngrok2/default.yml"
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
