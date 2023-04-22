@@ -34,6 +34,10 @@ alias pbash="p ~/.bashrc && p ~/.bash_functions && p ~/.bash_docker"
 
 alias fixsettings="dconf reset -f /org/gnome/control-center/"
 
+# In case you need to be authorized from different git profiles
+# alias work="cp ~/.gitconfig-work ~/.gitconfig"
+# alias home="cp ~/.gitconfig-home ~/.gitconfig"
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
