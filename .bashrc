@@ -32,6 +32,8 @@ alias p="phpstorm"
 # Command to easily open all .bash-files and edit them
 alias pbash="p ~/.bashrc && p ~/.bash_functions && p ~/.bash_docker"
 
+alias fixsettings="dconf reset -f /org/gnome/control-center/"
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
