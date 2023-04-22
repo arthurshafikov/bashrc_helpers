@@ -73,12 +73,12 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# This will make your name be just "me", not be YOUR-USERNAME@YOUR-PC, so it become much shorter
+# This will make your name be just YOUR-USERNAME@YOUR-PC
 if [ "$color_prompt" = yes ]; then
     #\u@\h
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]me\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}me:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
