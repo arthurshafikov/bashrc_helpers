@@ -52,6 +52,8 @@ alias c="composer"
 alias cfix="composer app:cs-fix"
 alias cs="composer app:cs"
 
+alias m="make"
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
