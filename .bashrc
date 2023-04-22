@@ -56,6 +56,11 @@ alias m="make"
 
 alias ng="ngrok start --all --config $HOME/.ngrok2/default.yml"
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+alias cov="go test -coverprofile=coverage.out && go tool cover -html=coverage.out"
+
 # Functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
