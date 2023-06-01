@@ -30,13 +30,6 @@ myfolder () {
 
 # Docker Functions
 
-# (Project INstall) Run docker-compose containers, copy the .env.example file
-pin () {
-    dcgo
-    cp .env.example .env
-    success
-}
-
 # (Docker PS) This command lists containers
 # Or you can pass an argument something like "dps mysql", so that command will list
 # containers which name contains "mysql"
