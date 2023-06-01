@@ -21,7 +21,7 @@ you don't need to worry about saving them somewhere else. And if somehow you hav
 cd ~/
 git clone https://github.com/arthurshafikov/bashrc_helpers.git
 mv -b ./bashrc_helpers/.gitconfig .
-mv -b ./bashrc_helpers/.bashrc .
+mv -b ./bashrc_helpers/.bash_aliases .
 mv -b ./bashrc_helpers/.profile .
 mv -i ./bashrc_helpers/.bash_functions .
 mv -i ./bashrc_helpers/.bash_docker .
