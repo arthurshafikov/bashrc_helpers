@@ -10,7 +10,7 @@ NC='\033[0m' #NoColor
 # You can change the MAIN_FILTER variable from "php" to some other specific containers' name that you use more often.
 MAIN_FILTER="php"
 
-# Specific name filter for tail() function
+# Specific name filter for dtail() function
 TAIL_MAIN_FILTER="nginx"
 
 # Permissions Functions
@@ -79,7 +79,7 @@ dx () {
 
 # (docker logs -f --TAIL) This command helps you to check the last logs of specific docker container
 # You can also filter containers by typing "tail nginx" so you will see only nginx containers.
-tail () {
+dtail () {
     if [[ -n "$1" ]]; then
         findContainer "$1"
     else 
