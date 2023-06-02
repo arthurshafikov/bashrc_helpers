@@ -2,7 +2,7 @@
 alias d="docker"
 alias dex="docker exec -it"
 alias dpsa="docker ps -a"
-alias dstall='d stop $(d ps -q)'
+alias dstall='docker stop $(docker ps -q)'
 
 # Docker Compose aliases
 alias dc="docker-compose"

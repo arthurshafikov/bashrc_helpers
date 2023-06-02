@@ -31,20 +31,20 @@ rm -rf ./bashrc_helpers
 # Aliases
 
 ### Simple ones
-|  Alias |                         Command                             |
+|  Alias |                           Command                           |
 |:------:|:-----------------------------------------------------------:|
-|    d   |                          docker                             |
-|   dc   |                      docker-compose                         |
-|   dex  |                     docker exec -it                         |
-|  dcps  |                    docker-compose ps                        |
-|  dpsa  |                       docker ps -a                          |
+|    d   |                           docker                            |
+|   dex  |                       docker exec -it                       |
+|  dpsa  |                        docker ps -a                         |
+| dstall |                 docker stop $(docker ps -q)                 |
+|   dc   |                       docker-compose                        |
+|  dcps  |                      docker-compose ps                      |
 |  dcgo  | docker-compose up -d --build --remove-orphands && **dbash** |
-|  dcup  |                   docker-compose up -d                      |
-| dstall |         docker stop docker ps -q \| tr '\n' ' '             |
-|  dcst  |                   docker-compose stop                       |
-|  dcrb  |                   basically **dcst** + **dcgo**             |
-|    g   |                           git                               |
-|    p   |                         phpstorm                            |
+|  dcup  |                    docker-compose up -d                     |
+|  dcst  |                     docker-compose stop                     |
+|  dcrb  |                    **dcst** && **dcgo**                     |
+|    g   |                             git                             |
+|    p   |                          phpstorm                           |
 
 
 ### Complicated ones (Commands)
@@ -52,9 +52,8 @@ rm -rf ./bashrc_helpers
 |:--------:|:----------------------------------------------------------------:|
 |  myfile  |                   set file's permission to 644                   |
 | myfolder |                  set folder's permission to 755                  |
-|    pin   |               **dcgo** + copy the .env.example file              |
-|    dps   |            lists filtered containers (e.g. **dps nginx**)        |
+|   dps    |            lists filtered containers (e.g. **dps nginx**)        |
 |   dcpv   | copy the vendor folder from specific container to current folder |
-|   dbash  |       pass the .bash_docker file to all filtered containers      |
+|  dbash   |       pass the .bash_docker file to all filtered containers      |
 |    dx    |                   enter the selected container                   |
-|   tail   |         list last 100 lines of logs of specific container        |
+|  dtail   |         list last 100 lines of logs of specific container        |
