@@ -15,4 +15,7 @@ alias pc="php artisan test --coverage"
 
 alias c="composer"
 alias cfix="composer app:cs-fix"
-alias ccs="composer app:cs"
+alias cs="composer app:cs"
+alias cc="composer check"
+alias cf="composer check-full"
+alias ct="composer test"
