@@ -27,6 +27,10 @@ myfolder () {
     sudo chown -R "$(id -u)":"$(id -g)" "$1"
     success
 }
+a777 () {
+  sudo chmod -R 777 "$1"
+  success
+}
 
 # Docker Functions
 
