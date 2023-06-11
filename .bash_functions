@@ -50,11 +50,16 @@ dps () {
 # (Docker CoPy Vendor) This command helps to copy the vendor folder from docker container
 dcpv () {
     findContainer "$1"
+    if [ -z "${CONTAINER}" ]
+      then
+      :
+      return 0
+    fi
     VENDOR=/src/vendor
     while true
     do
-        if d exec "$ID" test -d "$VENDOR"; then
-            d cp "$ID":$VENDOR ./
+        if d exec "$CONTAINER" test -d "$VENDOR"; then
+            d cp "$CONTAINER":$VENDOR ./
             success
             break
         fi
@@ -77,11 +82,29 @@ dbash () {
 
 # (Docker eXec -it bash) This command is used to enter container's bash console
 dx () {
-    findContainer "$1"
-    docker exec -it "$ID" bash
+    findContainer
+    if [ -z "${CONTAINER}" ]
+      then
+      :
+      return 0
+    fi
+
+    clear
+    out "Success! Entering container $CONTAINER\n" GREEN
+    out "Enter script to run [bash]:" YELLOW
+    read -r EXECUTABLE
+    if [ -z "$EXECUTABLE" ]
+    then
+      :
+      docker cp ~/.bash_docker "$CONTAINER":/root/.bashrc
+      EXECUTABLE=bash
+    fi
+
+    clear
+    docker exec -it "$CONTAINER" $EXECUTABLE
 }
 
-# (docker logs -f --TAIL) This command helps you to check the last logs of specific docker container
+# (Docker logs -f --TAIL) This command helps you to check the last logs of specific docker container
 # You can also filter containers by typing "tail nginx" so you will see only nginx containers.
 dtail () {
     if [[ -n "$1" ]]; then
@@ -90,19 +113,60 @@ dtail () {
         findContainer "$TAIL_MAIN_FILTER"
     fi
 
-    docker logs -f --tail 100 "$ID"
+    if [ -z "${CONTAINER}" ]
+      then
+      :
+      return 0
+    fi
+
+    docker logs -f --tail 100 "$CONTAINER"
 }
 
 ########################################################################
-# HELPER functions (you don't need use them)
+# HELPER functions (you don't need use them directly)
 
 # This is where $ID variable is being set
 findContainer () {
+    FILTER_VALUE=$1
+    if [[ -z "$FILTER_VALUE" ]]; then
+        FILTER_VALUE=$MAIN_FILTER
+    fi
+
     clear
-    dps "$1"
-    out "Enter Container ID:" YELLOW
-    read -r ID
-    clear
+    out "Filter value is " YELLOW
+    out "$FILTER_VALUE\n" GREEN
+
+    CONTAINERS_STRING=$(docker ps -f "name=$FILTER_VALUE" --format "{{.Names}}")
+
+    IFS=$'\n' read -rd '' -a CONTAINERS <<<"$CONTAINERS_STRING"
+
+    COUNTER=1
+    for CONTAINER_INFO in "${CONTAINERS[@]}"
+    do
+       :
+      printf "%1d. %-50s\n" $COUNTER "$CONTAINER_INFO"
+
+      COUNTER=$((COUNTER+1))
+    done
+
+    out "Enter Container number [1]:" YELLOW
+    read -r POSITION
+
+    if [[ -z "$POSITION" ]]
+      then
+        :
+        POSITION=1
+    fi
+
+    INDEX=$((POSITION-1))
+
+    CONTAINER=${CONTAINERS[INDEX]}
+
+    if [ -z "${CONTAINER}" ]
+      then
+      :
+        out "There is no number $POSITION in container selection...\n" RED
+    fi
 }
 
 out () {
