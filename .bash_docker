@@ -9,8 +9,9 @@ alias cc="php artisan cache:clear"
 alias oc="php artisan optimize:clear"
 alias key="php artisan key:generate"
 
-alias p="phpunit"
-alias pf="phpunit --filter"
+alias p="./vendor/bin/phpunit"
+alias pf="./vendor/bin/phpunit --filter"
+alias pc="php artisan test --coverage"
 
 alias c="composer"
 alias cfix="composer app:cs-fix"
