@@ -82,7 +82,7 @@ dbash () {
 
 # (Docker eXec -it bash) This command is used to enter container's bash console
 dx () {
-    findContainer
+    findContainer "$1"
     if [ -z "${CONTAINER}" ]
       then
       :
