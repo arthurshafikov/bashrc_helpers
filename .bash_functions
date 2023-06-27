@@ -96,9 +96,10 @@ dx () {
     if [ -z "$EXECUTABLE" ]
     then
       :
-      docker cp ~/.bash_docker "$CONTAINER":/root/.bashrc
       EXECUTABLE=bash
     fi
+
+    docker cp ~/.bash_docker "$CONTAINER":/root/.bashrc
 
     clear
 
