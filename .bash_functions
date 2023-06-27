@@ -91,22 +91,16 @@ dx () {
 
     clear
     out "Success! Entering container $CONTAINER\n" GREEN
-    out "Enter script to run [bash]:" YELLOW
-    read -r EXECUTABLE
-    if [ -z "$EXECUTABLE" ]
-    then
-      :
-      EXECUTABLE=bash
-    fi
+    selectProgram
 
     docker cp ~/.bash_docker "$CONTAINER":/root/.bashrc
 
     clear
 
-    if [[ $EXECUTABLE == sh* ]]; then
-      docker exec -it -e ENV=/root/.bashrc "$CONTAINER" sh
+    if [[ $PROGRAM == sh* ]]; then
+      docker exec -it -e ENV=/root/.bashrc "$CONTAINER" "$PROGRAM"
     else
-      docker exec -it "$CONTAINER" $EXECUTABLE
+      docker exec -it "$CONTAINER" "$PROGRAM"
     fi
 }
 
@@ -172,6 +166,38 @@ findContainer () {
       then
       :
         out "There is no number $POSITION in container selection...\n" RED
+    fi
+}
+
+selectProgram () {
+    PROGRAMS=("bash" "sh" "shell")
+
+    COUNTER=1
+    for PROGRAM in "${PROGRAMS[@]}"
+    do
+       :
+      printf "%1d. %-50s\n" $COUNTER "$PROGRAM"
+
+      COUNTER=$((COUNTER+1))
+    done
+
+    out "Select program to run [1]:" YELLOW
+    read -r POSITION
+
+    if [[ -z "$POSITION" ]]
+      then
+        :
+        POSITION=1
+    fi
+
+    INDEX=$((POSITION-1))
+
+    PROGRAM=${PROGRAMS[INDEX]}
+
+    if [ -z "${PROGRAM}" ]
+      then
+      :
+        out "There is no program $POSITION in programs selection...\n" RED
     fi
 }
 
