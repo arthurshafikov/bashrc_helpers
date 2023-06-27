@@ -101,7 +101,12 @@ dx () {
     fi
 
     clear
-    docker exec -it "$CONTAINER" $EXECUTABLE
+
+    if [[ $EXECUTABLE == sh* ]]; then
+      docker exec -it -e ENV=/root/.bashrc "$CONTAINER" sh
+    else
+      docker exec -it "$CONTAINER" $EXECUTABLE
+    fi
 }
 
 # (Docker logs -f --TAIL) This command helps you to check the last logs of specific docker container
