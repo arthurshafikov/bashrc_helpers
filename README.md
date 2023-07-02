@@ -75,7 +75,7 @@ rm -rf ./bashrc_helpers
 |   seed   |              php artisan db:seed               |
 |  fresh   |           php artisan migrate:fresh            |
 | testing  | php artisan migrate:fresh --seed --env=testing |
-|    cc    |            php artisan cache:clear             |
+|    ac    |            php artisan cache:clear             |
 |    oc    |           php artisan optimize:clear           |
 |   key    |            php artisan key:generate            |
 |    pc    |          php artisan test --coverage           |
